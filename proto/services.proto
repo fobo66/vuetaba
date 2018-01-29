@@ -1,0 +1,11 @@
+package vuetaba;
+
+syntax = "proto3";
+
+import "comment.proto";
+import "spam.proto";
+
+service CommentsService {
+    rpc Post (Comment) returns (Comment);
+    rpc ReportSpam (SpamRequest) returns (SpamResponse);
+}
