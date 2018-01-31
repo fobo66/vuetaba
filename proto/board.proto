@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package vuetaba;
+
+message Board {
+    required int64 id = 1;
+    required string name = 2;
+    required string tag = 3; // to use in URL
+}
+
+message BoardRequest {
+    required int64 id = 1; 
+}
+
+message BoardListResponse {
+    repeated int64 boardId = 1;
+}

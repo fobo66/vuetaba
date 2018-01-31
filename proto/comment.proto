@@ -1,6 +1,6 @@
-package vuetaba;
-
 syntax = "proto3";
+
+package vuetaba;
 
 message Comment {
     required uint64 id = 1;

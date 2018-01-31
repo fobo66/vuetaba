@@ -1,11 +1,19 @@
-package vuetaba;
-
 syntax = "proto3";
+
+package vuetaba;
 
 import "comment.proto";
 import "spam.proto";
+import "board.proto";
+import "google/protobuf/empty.proto";
 
 service CommentsService {
     rpc Post (Comment) returns (Comment);
+    rpc GetThread (ThreadRequest) returns (stream Comment);
     rpc ReportSpam (SpamRequest) returns (SpamResponse);
+}
+
+service BoardService {
+    rpc LoadBoard (BoardRequest) returns (Board);
+    rpc LoadBoardsList (google.protobuf.Empty) returns (Board);
 }
