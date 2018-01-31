@@ -19,3 +19,8 @@ message Comment {
 message Image {
     required string url = 1;
 }
+
+message ThreadRequest {
+    required uint64 rootCommentId = 1;
+    optional uint64 timestamp = 2; 
+}
