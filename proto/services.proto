@@ -16,5 +16,6 @@ service CommentsService {
 
 service BoardService {
     rpc LoadBoard (BoardRequest) returns (Board);
+    rpc LoadRecentCommentsPage (PageRequest) returns (stream Comment);
     rpc LoadBoardsList (google.protobuf.Empty) returns (stream Board);
 }
