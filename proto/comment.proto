@@ -4,15 +4,15 @@ package vuetaba;
 
 message Comment {
     required uint64 id = 1;
-    optional uint64 parent = 2;
+    uint64 parent = 2;
     required uint64 timestamp = 3;
     required uint64 lasthit = 4;
     required string ip = 5;
-    optional string name = 6;
-    optional string email = 7;
-    optional string password = 8;
-    optional string comment = 9;
-    optional Image image = 10;
+    string name = 6;
+    string email = 7;
+    string password = 8;
+    string comment = 9;
+    Image image = 10;
     required bool sage = 11;
 }
 
@@ -22,5 +22,5 @@ message Image {
 
 message ThreadRequest {
     required uint64 rootCommentId = 1;
-    optional uint64 timestamp = 2; 
+    uint64 timestamp = 2; 
 }

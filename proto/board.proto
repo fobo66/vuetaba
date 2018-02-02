@@ -6,7 +6,7 @@ message Board {
     required int64 id = 1;
     required string name = 2;
     required string tag = 3; // to use in URL
-    optional uint64 timestamp = 4; // access time
+    uint64 timestamp = 4; // access time
 }
 
 message BoardRequest {
