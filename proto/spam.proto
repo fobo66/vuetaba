@@ -3,12 +3,12 @@ syntax = "proto3";
 package vuetaba;
 
 message SpamRequest {
-    required int64 commentId = 1;
+    int64 commentId = 1;
     string reason = 2;
     string email = 3;
 }
 
 message SpamResponse {
-    required bool success = 1;
+    bool success = 1;
     string localizedError = 2;
 }
