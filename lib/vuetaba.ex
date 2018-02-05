@@ -4,15 +4,16 @@ defmodule Vuetaba do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Vuetaba.hello
-      :world
-
+  Starts an application
   """
-  def hello do
-    :world
+  def start(_type, _args) do
+    import Supervisor.Spec
+    
+    children = [
+      supervisor(GRPC.Server.Supervisor, [{Vuetaba.Core.Server, 50051}])
+    ]
+  
+    opts = [strategy: :one_for_one, name: Vuetaba]
+    Supervisor.start_link(children, opts)
   end
 end
