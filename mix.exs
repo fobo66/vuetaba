@@ -14,7 +14,7 @@ defmodule Vuetaba.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:grpc],
+      applications: [:grpc, :ecto, :postgrex],
       extra_applications: [:logger]
     ]
   end
@@ -26,7 +26,6 @@ defmodule Vuetaba.MixProject do
       {:postgrex, "~> 0.11"},
       {:protobuf, "~> 0.5"},
       {:grpc, github: "tony612/grpc-elixir"}
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
   end
 end
