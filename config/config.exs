@@ -2,39 +2,16 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+db = URI.parse(System.get_env("DATABASE_URL"))
+dbCredentials = String.split(db.userinfo, ":")
+
 config :vuetaba, CommentsRepo,
   adapter: Ecto.Adapters.Postgres,
-  database: "vuetaba_comments_repo",
-  username: "user",
-  password: "pass", # for fuck's sake, change it!!!
-  hostname: "localhost"
+  database: String.replace_prefix(db.path, "/", ""),
+  username: hd(dbCredentials),
+  password: tl(dbCredentials),
+  hostname: db.host
 
 config :vuetaba, ecto_repos: [CommentsRepo]
-# This configuration is loaded before any dependency and is restricted
-# to this project. If another project depends on this project, this
-# file won't be loaded nor affect the parent project. For this reason,
-# if you want to provide default values for your application for
-# 3rd-party users, it should be done in your "mix.exs" file.
-
-# You can configure your application as:
-#
-#     config :vuetaba, key: :value
-#
-# and access this configuration in your application as:
-#
-#     Application.get_env(:vuetaba, :key)
-#
-# You can also configure a 3rd-party app:
-#
-#     config :logger, level: :info
-#
-
-# It is also possible to import configuration files, relative to this
-# directory. For example, you can emulate configuration per environment
-# by uncommenting the line below and defining dev.exs, test.exs and such.
-# Configuration from the imported file will override the ones defined
-# here (which is why it is important to import them last).
-#
-#     import_config "#{Mix.env}.exs"
 
 config :grpc, start_server: true
