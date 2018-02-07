@@ -4,7 +4,6 @@ defmodule Vuetaba.Comment do
   @type t :: %__MODULE__{
           id: non_neg_integer,
           parent: non_neg_integer,
-          timestamp: non_neg_integer,
           lasthit: non_neg_integer,
           ip: String.t(),
           name: String.t(),
@@ -14,31 +13,18 @@ defmodule Vuetaba.Comment do
           image: Vuetaba.Image.t(),
           sage: boolean
         }
-  defstruct [
-    :id,
-    :parent,
-    :timestamp,
-    :lasthit,
-    :ip,
-    :name,
-    :email,
-    :password,
-    :comment,
-    :image,
-    :sage
-  ]
+  defstruct [:id, :parent, :lasthit, :ip, :name, :email, :password, :comment, :image, :sage]
 
   field(:id, 1, type: :uint64)
   field(:parent, 2, type: :uint64)
-  field(:timestamp, 3, type: :uint64)
-  field(:lasthit, 4, type: :uint64)
-  field(:ip, 5, type: :string)
-  field(:name, 6, type: :string)
-  field(:email, 7, type: :string)
-  field(:password, 8, type: :string)
-  field(:comment, 9, type: :string)
-  field(:image, 10, type: Vuetaba.Image)
-  field(:sage, 11, type: :bool)
+  field(:lasthit, 3, type: :uint64)
+  field(:ip, 4, type: :string)
+  field(:name, 5, type: :string)
+  field(:email, 6, type: :string)
+  field(:password, 7, type: :string)
+  field(:comment, 8, type: :string)
+  field(:image, 9, type: Vuetaba.Image)
+  field(:sage, 10, type: :bool)
 end
 
 defmodule Vuetaba.Image do

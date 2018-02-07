@@ -5,15 +5,14 @@ package vuetaba;
 message Comment {
     uint64 id = 1;
     uint64 parent = 2;
-    uint64 timestamp = 3;
-    uint64 lasthit = 4;
-    string ip = 5;
-    string name = 6;
-    string email = 7;
-    string password = 8;
-    string comment = 9;
-    Image image = 10;
-    bool sage = 11;
+    uint64 lasthit = 3;
+    string ip = 4;
+    string name = 5;
+    string email = 6;
+    string password = 7;
+    string comment = 8;
+    Image image = 9;
+    bool sage = 10;
 }
 
 message Image {
