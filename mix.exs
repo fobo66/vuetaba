@@ -25,7 +25,8 @@ defmodule Vuetaba.MixProject do
       {:ecto, "~> 2.0"},
       {:postgrex, "~> 0.11"},
       {:protobuf, "~> 0.5"},
-      {:grpc, github: "tony612/grpc-elixir"}
+      {:grpc, github: "tony612/grpc-elixir"},
+      {:credo, "~> 0.9.0-rc3", only: [:dev, :test], runtime: false}
     ]
   end
 end
