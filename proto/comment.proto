@@ -8,15 +8,17 @@ message Comment {
     uint64 lasthit = 3;
     string ip = 4;
     string name = 5;
-    string email = 6;
+    string tripcode = 6;
     string password = 7;
     string comment = 8;
-    Image image = 9;
-    bool sage = 10;
+    bool sage = 9;
+    string lang = 10;
+    repeated Attachment attachments = 11;
 }
 
-message Image {
+message Attachment {
     string url = 1;
+    string previewUrl = 2;
 }
 
 message ThreadRequest {

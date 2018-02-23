@@ -30,11 +30,11 @@ defmodule Vuetaba.BoardListResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          boardId: [integer]
+          boards: [Vuetaba.Board.t()]
         }
-  defstruct [:boardId]
+  defstruct [:boards]
 
-  field(:boardId, 1, repeated: true, type: :int64)
+  field(:boards, 1, repeated: true, type: Vuetaba.Board)
 end
 
 defmodule Vuetaba.PageRequest do

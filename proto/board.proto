@@ -14,7 +14,7 @@ message BoardRequest {
 }
 
 message BoardListResponse {
-    repeated int64 boardId = 1;
+    repeated Board boards = 1;
 }
 
 message PageRequest {
