@@ -11,7 +11,7 @@ defmodule CommentsRepo.Migrations.Initial do
       add(:lasthit, :integer)
       add(:ip, :string, null: false)
       add(:name, :string, default: "Anonymous", size: 50)
-      add(:comment, :text, size: 1000)
+      add(:comment, :text, size: 1000, null: false)
       add(:sage, :boolean, default: false)
 
       timestamps()
