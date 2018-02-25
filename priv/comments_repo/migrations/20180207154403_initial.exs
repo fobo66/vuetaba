@@ -18,8 +18,8 @@ defmodule CommentsRepo.Migrations.Initial do
     end
 
     create table(:boards) do
-      add(:name, :string, size: 100)
-      add(:tag, :string, size: 10)
+      add(:name, :string, size: 100, null: false)
+      add(:tag, :string, size: 10, null: false)
     end
 
     create table(:threads) do
