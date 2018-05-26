@@ -1,6 +1,6 @@
-defmodule Vuetaba2 do
+defmodule Vuetaba do
   @moduledoc """
-  Vuetaba2 keeps the contexts that define your domain
+  Vuetaba keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

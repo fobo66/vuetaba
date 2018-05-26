@@ -1,5 +1,5 @@
-defmodule Vuetaba2Web.Router do
-  use Vuetaba2Web, :router
+defmodule VuetabaWeb.Router do
+  use VuetabaWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule Vuetaba2Web.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Vuetaba2Web do
+  scope "/", VuetabaWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Vuetaba2Web do
+  # scope "/api", VuetabaWeb do
   #   pipe_through :api
   # end
 end

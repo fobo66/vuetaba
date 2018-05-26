@@ -1,4 +1,4 @@
-defmodule Vuetaba2Web.ErrorHelpers do
+defmodule VuetabaWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule Vuetaba2Web.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(Vuetaba2Web.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(VuetabaWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Vuetaba2Web.Gettext, "errors", msg, opts)
+      Gettext.dgettext(VuetabaWeb.Gettext, "errors", msg, opts)
     end
   end
 end

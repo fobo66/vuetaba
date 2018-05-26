@@ -1,9 +1,9 @@
-defmodule Vuetaba2.Mixfile do
+defmodule Vuetaba.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :vuetaba2,
+      app: :vuetaba,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -19,7 +19,7 @@ defmodule Vuetaba2.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Vuetaba2.Application, []},
+      mod: {Vuetaba.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

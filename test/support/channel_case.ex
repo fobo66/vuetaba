@@ -1,4 +1,4 @@
-defmodule Vuetaba2Web.ChannelCase do
+defmodule VuetabaWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule Vuetaba2Web.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint Vuetaba2Web.Endpoint
+      @endpoint VuetabaWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Vuetaba2.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Vuetaba.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Vuetaba2.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Vuetaba.Repo, {:shared, self()})
     end
     :ok
   end

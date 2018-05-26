@@ -1,8 +1,8 @@
-defmodule Vuetaba2Web.UserSocket do
+defmodule VuetabaWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Vuetaba2Web.RoomChannel
+  # channel "room:*", VuetabaWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -30,7 +30,7 @@ defmodule Vuetaba2Web.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     Vuetaba2Web.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     VuetabaWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

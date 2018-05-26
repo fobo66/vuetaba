@@ -1,11 +1,11 @@
-defmodule Vuetaba2Web.Gettext do
+defmodule VuetabaWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import Vuetaba2Web.Gettext
+      import VuetabaWeb.Gettext
 
       # Simple translation
       gettext "Here is the string to translate"
@@ -20,5 +20,5 @@ defmodule Vuetaba2Web.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :vuetaba2
+  use Gettext, otp_app: :vuetaba
 end

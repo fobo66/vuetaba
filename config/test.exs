@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :vuetaba2, Vuetaba2Web.Endpoint,
+config :vuetaba, VuetabaWeb.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,10 +10,10 @@ config :vuetaba2, Vuetaba2Web.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :vuetaba2, Vuetaba2.Repo,
+config :vuetaba, Vuetaba.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "vuetaba2_test",
+  database: "vuetaba_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

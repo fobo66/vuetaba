@@ -1,14 +1,14 @@
-defmodule Vuetaba2Web.Endpoint do
-  use Phoenix.Endpoint, otp_app: :vuetaba2
+defmodule VuetabaWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :vuetaba
 
-  socket "/socket", Vuetaba2Web.UserSocket
+  socket "/socket", VuetabaWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :vuetaba2, gzip: false,
+    at: "/", from: :vuetaba, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -34,10 +34,10 @@ defmodule Vuetaba2Web.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_vuetaba2_key",
+    key: "_vuetaba_key",
     signing_salt: "yeV0A93Y"
 
-  plug Vuetaba2Web.Router
+  plug VuetabaWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

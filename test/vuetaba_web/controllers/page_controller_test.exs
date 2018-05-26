@@ -1,5 +1,5 @@
-defmodule Vuetaba2Web.PageControllerTest do
-  use Vuetaba2Web.ConnCase
+defmodule VuetabaWeb.PageControllerTest do
+  use VuetabaWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

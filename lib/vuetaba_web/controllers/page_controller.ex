@@ -1,5 +1,5 @@
-defmodule Vuetaba2Web.PageController do
-  use Vuetaba2Web, :controller
+defmodule VuetabaWeb.PageController do
+  use VuetabaWeb, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

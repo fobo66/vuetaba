@@ -1,5 +1,5 @@
-defmodule Vuetaba2Web.ErrorView do
-  use Vuetaba2Web, :view
+defmodule VuetabaWeb.ErrorView do
+  use VuetabaWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

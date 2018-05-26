@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :vuetaba2,
-  ecto_repos: [Vuetaba2.Repo]
+config :vuetaba,
+  ecto_repos: [Vuetaba.Repo]
 
 # Configures the endpoint
-config :vuetaba2, Vuetaba2Web.Endpoint,
+config :vuetaba, VuetabaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "W22rfmrSuCUZ/a8tMVBppPqjqkMoo7ZABc0G9WTHdOx88bOWzIo+V033joeq8jW7",
-  render_errors: [view: Vuetaba2Web.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Vuetaba2.PubSub,
+  render_errors: [view: VuetabaWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Vuetaba.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

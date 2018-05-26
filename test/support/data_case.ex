@@ -1,4 +1,4 @@
-defmodule Vuetaba2.DataCase do
+defmodule Vuetaba.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule Vuetaba2.DataCase do
 
   using do
     quote do
-      alias Vuetaba2.Repo
+      alias Vuetaba.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Vuetaba2.DataCase
+      import Vuetaba.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Vuetaba2.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Vuetaba.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Vuetaba2.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Vuetaba.Repo, {:shared, self()})
     end
 
     :ok

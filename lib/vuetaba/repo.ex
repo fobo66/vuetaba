@@ -1,5 +1,5 @@
-defmodule Vuetaba2.Repo do
-  use Ecto.Repo, otp_app: :vuetaba2
+defmodule Vuetaba.Repo do
+  use Ecto.Repo, otp_app: :vuetaba
 
   @doc """
   Dynamically loads the repository url from the

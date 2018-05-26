@@ -1,12 +1,12 @@
-defmodule Vuetaba2Web do
+defmodule VuetabaWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use Vuetaba2Web, :controller
-      use Vuetaba2Web, :view
+      use VuetabaWeb, :controller
+      use VuetabaWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule Vuetaba2Web do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: Vuetaba2Web
+      use Phoenix.Controller, namespace: VuetabaWeb
       import Plug.Conn
-      import Vuetaba2Web.Router.Helpers
-      import Vuetaba2Web.Gettext
+      import VuetabaWeb.Router.Helpers
+      import VuetabaWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/vuetaba2_web/templates",
-                        namespace: Vuetaba2Web
+      use Phoenix.View, root: "lib/vuetaba_web/templates",
+                        namespace: VuetabaWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule Vuetaba2Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Vuetaba2Web.Router.Helpers
-      import Vuetaba2Web.ErrorHelpers
-      import Vuetaba2Web.Gettext
+      import VuetabaWeb.Router.Helpers
+      import VuetabaWeb.ErrorHelpers
+      import VuetabaWeb.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule Vuetaba2Web do
   def channel do
     quote do
       use Phoenix.Channel
-      import Vuetaba2Web.Gettext
+      import VuetabaWeb.Gettext
     end
   end
 

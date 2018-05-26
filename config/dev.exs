@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :vuetaba2, Vuetaba2Web.Endpoint,
+config :vuetaba, VuetabaWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,13 +30,13 @@ config :vuetaba2, Vuetaba2Web.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :vuetaba2, Vuetaba2Web.Endpoint,
+config :vuetaba, VuetabaWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/vuetaba2_web/views/.*(ex)$},
-      ~r{lib/vuetaba2_web/templates/.*(eex)$}
+      ~r{lib/vuetaba_web/views/.*(ex)$},
+      ~r{lib/vuetaba_web/templates/.*(eex)$}
     ]
   ]
 
@@ -48,10 +48,10 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :vuetaba2, Vuetaba2.Repo,
+config :vuetaba, Vuetaba.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "vuetaba2_dev",
+  database: "vuetaba_dev",
   hostname: "localhost",
   pool_size: 10
