@@ -10,7 +10,11 @@ defmodule VuetabaWeb.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug Absinthe.Plug, schema: VuetabaWeb.Schema
+  end
+
+  pipeline :graphiql do
+    plug Absinthe.Plug.GraphiQL, schema: VuetabaWeb.Schema
   end
 
   scope "/", VuetabaWeb do
@@ -20,7 +24,11 @@ defmodule VuetabaWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", VuetabaWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", VuetabaWeb do
+    pipe_through :api
+  end
+
+  scope "/graphiql", VuetabaWeb do
+    pipe_through :graphiql
+  end
 end
