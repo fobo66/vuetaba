@@ -1,13 +1,27 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
+#
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
 use Mix.Config
 
-config :vuetaba, CommentsRepo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
+# General application configuration
+config :vuetaba2,
+  ecto_repos: [Vuetaba2.Repo]
 
-config :vuetaba, ecto_repos: [CommentsRepo]
+# Configures the endpoint
+config :vuetaba2, Vuetaba2Web.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "W22rfmrSuCUZ/a8tMVBppPqjqkMoo7ZABc0G9WTHdOx88bOWzIo+V033joeq8jW7",
+  render_errors: [view: Vuetaba2Web.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Vuetaba2.PubSub,
+           adapter: Phoenix.PubSub.PG2]
 
-config :grpc, start_server: true
+# Configures Elixir's Logger
+config :logger, :console,
+  format: "$time $metadata[$level] $message\n",
+  metadata: [:user_id]
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{Mix.env}.exs"
