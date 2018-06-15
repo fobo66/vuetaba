@@ -5,8 +5,9 @@ defmodule Vuetaba.Thread do
 
   schema "threads" do
     field :name, :string
-    field :message, :string
+    field :message, :text, size: 1000
     belongs_to :board, Vuetaba.Board
+    has_many :comments, Vuetaba.Comment
 
     timestamps()
   end

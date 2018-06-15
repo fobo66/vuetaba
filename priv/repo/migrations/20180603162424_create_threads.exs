@@ -4,7 +4,7 @@ defmodule Vuetaba.Repo.Migrations.CreateThreads do
   def change do
     create table(:threads) do
       add :name, :string
-      add :message, :string
+      add :message, :text, size: 1000
       add :board_id, references(:boards, on_delete: :nothing)
 
       timestamps()
