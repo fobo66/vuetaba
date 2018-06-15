@@ -27,3 +27,5 @@ vuetaba-*.tar
 /log/
 
 .DS_Store
+
+/.idea
