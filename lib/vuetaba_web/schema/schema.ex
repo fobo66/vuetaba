@@ -1,5 +1,5 @@
 defmodule VuetabaWeb.Schema do
-    use Absinthe.Schema
+  use Absinthe.Schema
 
-    import_types(VuetabaWeb.Schema.Types)
+  import_types(VuetabaWeb.Schema.Types)
 end
