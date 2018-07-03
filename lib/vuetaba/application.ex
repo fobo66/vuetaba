@@ -12,6 +12,7 @@ defmodule Vuetaba.Application do
       supervisor(Vuetaba.Repo, []),
       # Start the endpoint when the application starts
       supervisor(VuetabaWeb.Endpoint, []),
+      supervisor(Absinthe.Subscription, [VuetabaWeb.Endpoint])
       # Start your own worker by calling: Vuetaba.Worker.start_link(arg1, arg2, arg3)
       # worker(Vuetaba.Worker, [arg1, arg2, arg3]),
     ]

@@ -1,6 +1,9 @@
 defmodule VuetabaWeb.UserSocket do
   use Phoenix.Socket
 
+use Absinthe.Phoenix.Socket,
+  schema:VuetabaWeb.Schema
+
   ## Channels
   # channel "room:*", VuetabaWeb.RoomChannel
 
