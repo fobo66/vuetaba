@@ -11,6 +11,7 @@ defmodule Vuetaba.Comment do
     field :name, :string
     field :sage, :boolean, default: false
     belongs_to :thread, Vuetaba.Thread
+    has_many :attachment, Vuetaba.Attachment
 
     timestamps()
   end

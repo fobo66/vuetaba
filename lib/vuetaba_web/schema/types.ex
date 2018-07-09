@@ -17,5 +17,10 @@ defmodule VuetabaWeb.Schema.Types do
     field :name, :string
     field :comment, :string
     field :sage, :boolean
+    field :attachments, list_of(:attachment)
+  end
+
+  object :attachment do
+    field :url, :string
   end
 end
