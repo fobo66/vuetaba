@@ -45,6 +45,7 @@ defmodule Vuetaba.Mixfile do
       {:absinthe, "~> 1.4.0"},
       {:absinthe_plug, "~> 1.4"},
       {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_phoenix, "~> 1.4.0"},
 
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
     ]
