@@ -7,7 +7,7 @@ defmodule Vuetaba.Comment do
 
 
   schema "comments" do
-    field :comment, :text, size: 1000
+    field :comment, :string, size: 1000
     field :name, :string
     field :sage, :boolean, default: false
     belongs_to :thread, Vuetaba.Thread
