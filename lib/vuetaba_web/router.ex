@@ -5,14 +5,14 @@ defmodule VuetabaWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/api", VuetabaWeb do
+  scope "/" do
     pipe_through(:api)
-
-    forward("/", Absinthe.Plug, schema: VuetabaWeb.Schema)
 
     forward("/graphiql", Absinthe.Plug.GraphiQL,
       schema: VuetabaWeb.Schema,
       socket: VuetabaWeb.UserSocket
     )
+
+    forward("/", Absinthe.Plug, schema: VuetabaWeb.Schema)
   end
 end
