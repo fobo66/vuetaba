@@ -29,3 +29,5 @@ vuetaba-*.tar
 .DS_Store
 
 /.idea
+
+.env

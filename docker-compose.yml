@@ -2,9 +2,12 @@ version: '3'
 services:
   web:
     build: .
+    env_file: .env
     ports:
     - "5000:5000"
     depends_on:
     - database
   database:
     image: postgres
+    ports:
+    - "5432:5432"
