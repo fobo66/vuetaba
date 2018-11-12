@@ -1,5 +1,9 @@
 FROM elixir:1.7.3-alpine as build
 
+
+LABEL maintainer="fobo66@protonmail.com"
+LABEL version="0.0.1"
+
 # install build dependencies
 RUN apk add --update git
 
