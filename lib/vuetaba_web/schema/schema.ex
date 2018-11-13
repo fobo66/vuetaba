@@ -17,4 +17,13 @@ defmodule VuetabaWeb.Schema do
 
   end
   
+  mutation do
+    @desc "Add new board"
+    field :create_board, type: :board do
+      arg :name, non_null(:string)
+      arg :tag, non_null(:string)
+
+      resolve &Resolvers.Boards.create_board/3
+    end
+  end
 end
