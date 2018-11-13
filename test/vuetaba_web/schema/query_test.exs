@@ -1,6 +1,6 @@
 defmodule VuetabaWeb.Schema.QueryTest do
   use Vuetaba.DataCase
-  import Kronky.TestHelper
+  require Kronky.TestHelper
 
   Kronky.TestHelper.evaluate_schema(VuetabaWeb.Schema)
 
