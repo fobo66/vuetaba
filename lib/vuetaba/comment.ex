@@ -5,13 +5,12 @@ defmodule Vuetaba.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "comments" do
-    field :comment, :string, size: 1000
-    field :name, :string
-    field :sage, :boolean, default: false
-    belongs_to :thread, Vuetaba.Thread
-    has_many :attachment, Vuetaba.Attachment
+    field(:comment, :string, size: 1000)
+    field(:name, :string)
+    field(:sage, :boolean, default: false)
+    belongs_to(:thread, Vuetaba.Thread)
+    has_many(:attachment, Vuetaba.Attachment)
 
     timestamps()
   end

@@ -14,8 +14,7 @@ config :vuetaba, VuetabaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "W22rfmrSuCUZ/a8tMVBppPqjqkMoo7ZABc0G9WTHdOx88bOWzIo+V033joeq8jW7",
   render_errors: [view: VuetabaWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Vuetaba.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Vuetaba.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +23,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

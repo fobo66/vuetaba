@@ -22,8 +22,7 @@ config :vuetaba, VuetabaWeb.Endpoint,
 config :logger, level: :info
 
 # Configure your database
-config :vuetaba, Vuetaba.Repo,
-  adapter: Ecto.Adapters.Postgres
+config :vuetaba, Vuetaba.Repo, adapter: Ecto.Adapters.Postgres
 
 # ## SSL Support
 #

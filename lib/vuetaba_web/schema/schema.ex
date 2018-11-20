@@ -7,23 +7,22 @@ defmodule VuetabaWeb.Schema do
   query do
     @desc "Load all attachments"
     field :attachments, list_of(:attachment) do
-      resolve &Resolvers.Attachments.load_all_attachments/3
+      resolve(&Resolvers.Attachments.load_all_attachments/3)
     end
 
     @desc "Load all boards"
     field :boards, list_of(:board) do
-      resolve &Resolvers.Boards.load_all_boards/3
+      resolve(&Resolvers.Boards.load_all_boards/3)
     end
-
   end
-  
+
   mutation do
     @desc "Add new board"
     field :create_board, type: :board do
-      arg :name, non_null(:string)
-      arg :tag, non_null(:string)
+      arg(:name, non_null(:string))
+      arg(:tag, non_null(:string))
 
-      resolve &Resolvers.Boards.create_board/3
+      resolve(&Resolvers.Boards.create_board/3)
     end
   end
 end

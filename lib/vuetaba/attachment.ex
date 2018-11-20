@@ -2,11 +2,10 @@ defmodule Vuetaba.Attachment do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "attachments" do
-    field :url, :string, size: 512
-    
-    belongs_to :comment, Vuetaba.Comment
+    field(:url, :string, size: 512)
+
+    belongs_to(:comment, Vuetaba.Comment)
 
     timestamps()
   end
