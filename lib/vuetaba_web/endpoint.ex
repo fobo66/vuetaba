@@ -3,7 +3,8 @@ defmodule VuetabaWeb.Endpoint do
 
   use Absinthe.Phoenix.Endpoint
 
-  socket("/socket", VuetabaWeb.UserSocket)
+  socket("/socket", VuetabaWeb.UserSocket,
+    websocket: true)
 
   # Serve at "/" the static files from "priv/static" directory.
   #
