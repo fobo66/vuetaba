@@ -33,5 +33,12 @@ defmodule VuetabaWeb.Schema do
 
       resolve(&Resolvers.Boards.update_board/3)
     end
+
+    @desc "Delete board"
+    field :delete_board, type: :string do
+      arg(:id, non_null(:integer))
+
+      resolve(&Resolvers.Boards.delete_board/3)
+    end
   end
 end
