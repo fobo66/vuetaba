@@ -20,10 +20,10 @@ defmodule VuetabaWeb.Resolvers.Boards do
   end
 
   def delete_board(_parent, args, _resolution) do
-    {status, {}} = %Vuetaba.Board{id: args.id}
-    |> Ecto.Changeset.change()
-    |> Repo.delete()
+    %Vuetaba.Board{id: args.id}
+      |> Ecto.Changeset.change()
+      |> Repo.delete()
 
-    status
+    {:ok, args.id}
   end
 end

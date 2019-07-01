@@ -35,7 +35,7 @@ defmodule VuetabaWeb.Schema do
     end
 
     @desc "Delete board"
-    field :delete_board, type: :string do
+    field :delete_board, type: :integer do
       arg(:id, non_null(:integer))
 
       resolve(&Resolvers.Boards.delete_board/3)
