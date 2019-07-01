@@ -24,5 +24,14 @@ defmodule VuetabaWeb.Schema do
 
       resolve(&Resolvers.Boards.create_board/3)
     end
+
+    @desc "Update board"
+    field :update_board, type: :board do
+      arg(:id, non_null(:integer))
+      arg(:name, non_null(:string))
+      arg(:tag, non_null(:string))
+
+      resolve(&Resolvers.Boards.update_board/3)
+    end
   end
 end
