@@ -3,6 +3,7 @@ defmodule VuetabaWeb.Schema.Types do
   use Absinthe.Ecto, repo: Vuetaba.Repo
 
   object :board do
+    field(:id, non_null(:integer))
     field(:name, non_null(:string))
     field(:tag, non_null(:string))
     field(:threads, list_of(:thread), resolve: assoc(:threads))
