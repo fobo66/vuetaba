@@ -4,7 +4,7 @@ defmodule Vuetaba.Mixfile do
   def project do
     [
       app: :vuetaba,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -49,6 +49,9 @@ defmodule Vuetaba.Mixfile do
       {:absinthe_phoenix, "~> 1.4.0"},
       {:kronky, "~> 0.5.0"},
       {:distillery, "~> 2.0"},
+      {:guardian, "~> 1.0"},
+      {:comeonin, "~> 4.0"},
+      {:bcrypt_elixir, "~> 1.0"}
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
     ]
   end
