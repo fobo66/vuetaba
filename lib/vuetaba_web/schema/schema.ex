@@ -2,6 +2,10 @@ defmodule VuetabaWeb.Schema do
   use Absinthe.Schema
   import_types(VuetabaWeb.Schema.Types)
 
+  @moduledoc """
+    GraphQL schema used in project
+  """
+
   alias VuetabaWeb.Resolvers
 
   query do
