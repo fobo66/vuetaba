@@ -6,11 +6,7 @@ defmodule VuetabaWeb.Endpoint do
   socket("/socket", VuetabaWeb.UserSocket,
     websocket: true)
 
-  # Serve at "/" the static files from "priv/static" directory.
-  #
-  # You should set gzip to true if you are running phoenix.digest
-  # when deploying your static files in production.
-  plug(Plug.Static, at: "/", from: :vuetaba, gzip: false, only: ~w(favicon.ico robots.txt))
+  plug(Plug.Static, at: "/", from: :vuetaba, gzip: true, only: ~w(favicon.ico robots.txt))
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

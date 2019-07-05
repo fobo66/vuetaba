@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :phoenix, :json_library, Jason
+
 # General application configuration
 config :vuetaba,
   ecto_repos: [Vuetaba.Repo]

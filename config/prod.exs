@@ -9,7 +9,7 @@ use Mix.Config
 # Don't forget to configure the url host to something meaningful,
 # Phoenix uses this information when generating URLs.
 config :vuetaba, VuetabaWeb.Endpoint,
-  http: [port: {:system, "HTTP_PORT"}],
+  http: [port: {:system, "HTTP_PORT"}, compress: true],
   # This is critical for ensuring web-sockets properly authorize.
   url: [host: "localhost", port: {:system, "HTTP_PORT"}],
   secret_key_base: {:system, "PHOENIX_ENDPOINT_SECRET"},
