@@ -59,20 +59,20 @@ defmodule VuetabaWeb.Schema.MutationsTest do
     }
     "
 
-      {:ok, %{data: create_result}} = evaluate_graphql(create_query)
+    {:ok, %{data: create_result}} = evaluate_graphql(create_query)
 
-      %{"createBoard" => id} = create_result
+    %{"createBoard" => id} = create_result
 
-      query = "mutation {
+    query = "mutation {
         deleteBoard(
           id: #{Integer.to_string(id["id"])}
         )
       }
       "
 
-      assert {:ok, %{data: data}} = evaluate_graphql(query)
-      expected = id["id"]
-      %{"deleteBoard" => result} = data
-      assert expected === result
-    end
+    assert {:ok, %{data: data}} = evaluate_graphql(query)
+    expected = id["id"]
+    %{"deleteBoard" => result} = data
+    assert expected === result
+  end
 end

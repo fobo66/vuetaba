@@ -3,8 +3,7 @@ defmodule VuetabaWeb.Endpoint do
 
   use Absinthe.Phoenix.Endpoint
 
-  socket("/socket", VuetabaWeb.UserSocket,
-    websocket: true)
+  socket("/socket", VuetabaWeb.UserSocket, websocket: true)
 
   plug(Plug.Static, at: "/", from: :vuetaba, gzip: true, only: ~w(favicon.ico robots.txt))
 
@@ -21,7 +20,7 @@ defmodule VuetabaWeb.Endpoint do
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
   )
 
   plug(Plug.MethodOverride)

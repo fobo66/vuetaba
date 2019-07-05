@@ -1,7 +1,7 @@
 defmodule Vuetaba.Repo do
-  use Ecto.Repo, 
-  otp_app: :vuetaba,
-  adapter: Ecto.Adapters.Postgres
+  use Ecto.Repo,
+    otp_app: :vuetaba,
+    adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the
