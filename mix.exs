@@ -49,9 +49,7 @@ defmodule Vuetaba.Mixfile do
       {:absinthe_phoenix, "~> 1.4.0"},
       {:kronky, "~> 0.5.0"},
       {:distillery, "~> 2.0"},
-      {:guardian, "~> 1.0"},
-      {:comeonin, "~> 4.0"},
-      {:bcrypt_elixir, "~> 1.0"},
+      {:joken, "~> 2.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
     ]
   end
