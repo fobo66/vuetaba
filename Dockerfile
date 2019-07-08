@@ -1,4 +1,4 @@
-FROM elixir:1.7.3-alpine as build
+FROM elixir:1.9.0-alpine as build
 
 
 LABEL maintainer="fobo66@protonmail.com"
