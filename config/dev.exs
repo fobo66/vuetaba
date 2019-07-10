@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :vuetaba, VuetabaWeb.Endpoint,
+Config.config :vuetaba, VuetabaWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,7 +30,7 @@ config :vuetaba, VuetabaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :vuetaba, VuetabaWeb.Endpoint,
+Config.config :vuetaba, VuetabaWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
@@ -41,14 +41,14 @@ config :vuetaba, VuetabaWeb.Endpoint,
   ]
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+Config.config :logger, :console, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
-config :phoenix, :stacktrace_depth, 20
+Config.config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :vuetaba, Vuetaba.Repo,
+Config.config :vuetaba, Vuetaba.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",

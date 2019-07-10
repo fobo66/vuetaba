@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # For production, we often load configuration from external
 # sources, such as your system environment. For this reason,
@@ -8,7 +8,7 @@ use Mix.Config
 #
 # Don't forget to configure the url host to something meaningful,
 # Phoenix uses this information when generating URLs.
-config :vuetaba, VuetabaWeb.Endpoint,
+Config.config :vuetaba, VuetabaWeb.Endpoint,
   http: [port: {:system, "HTTP_PORT"}, compress: true],
   # This is critical for ensuring web-sockets properly authorize.
   url: [host: "localhost", port: {:system, "HTTP_PORT"}],
@@ -19,10 +19,10 @@ config :vuetaba, VuetabaWeb.Endpoint,
   code_reloader: false
 
 # Do not print debug messages in production
-config :logger, level: :info
+Config.config :logger, level: :info
 
 # Configure your database
-config :vuetaba, Vuetaba.Repo, adapter: Ecto.Adapters.Postgres
+Config.config :vuetaba, Vuetaba.Repo, adapter: Ecto.Adapters.Postgres
 
 # ## SSL Support
 #
