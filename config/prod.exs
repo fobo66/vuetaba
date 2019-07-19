@@ -8,7 +8,7 @@ import Config
 #
 # Don't forget to configure the url host to something meaningful,
 # Phoenix uses this information when generating URLs.
-Config.config :vuetaba, VuetabaWeb.Endpoint,
+Config.config(:vuetaba, VuetabaWeb.Endpoint,
   http: [port: {:system, "HTTP_PORT"}, compress: true],
   # This is critical for ensuring web-sockets properly authorize.
   url: [host: "localhost", port: {:system, "HTTP_PORT"}],
@@ -17,12 +17,13 @@ Config.config :vuetaba, VuetabaWeb.Endpoint,
   root: ".",
   version: Application.spec(:vuetaba, :vsn),
   code_reloader: false
+)
 
 # Do not print debug messages in production
-Config.config :logger, level: :info
+Config.config(:logger, level: :info)
 
 # Configure your database
-Config.config :vuetaba, Vuetaba.Repo, adapter: Ecto.Adapters.Postgres
+Config.config(:vuetaba, Vuetaba.Repo, adapter: Ecto.Adapters.Postgres)
 
 # ## SSL Support
 #

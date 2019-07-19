@@ -3,6 +3,10 @@ defmodule VuetabaWeb.Context do
 
   import Plug.Conn
 
+  @moduledoc """
+    Context for Absinthe authenticated requests
+  """
+
   def init(opts), do: opts
 
   def call(conn, _) do
@@ -16,7 +20,7 @@ defmodule VuetabaWeb.Context do
   end
 
   defp build_context(conn) do
-    with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
+    with ["Bearer " <> token] <- get_req_header(conn, "Authorization"),
          {:ok, claims} <- verify(token) do
       {:ok, %{claims: claims, token: token}}
     end

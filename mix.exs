@@ -50,6 +50,7 @@ defmodule Vuetaba.Mixfile do
       {:kronky, "~> 0.5.0"},
       {:distillery, "~> 2.0"},
       {:joken, "~> 2.0"},
+      {:joken_jwks, "~> 1.1.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
     ]
   end
