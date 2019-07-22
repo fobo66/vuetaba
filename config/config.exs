@@ -22,9 +22,11 @@ Config.config(:vuetaba, VuetabaWeb.Endpoint,
 
 # Configures Auth0 JWT auth
 Config.config(:vuetaba, Vuetaba.AdminToken,
-  # Auth0 gives you JWKS in format like
+  # Auth0 gives you JWKS in format like https://YOUR_DOMAIN/.well-known/jwks.json
   jwks_url: {:system, "JWKS_URL"},
+  # It's Auth0 domain or yoour custom domain in form of https://YOUR_DOMAIN/
   jwt_issuer: {:system, "JWT_ISSUER"},
+  # field Identifier at your Auth0 API's Settings
   jwt_auditory: {:system, "JWT_AUDITORY"}
 )
 
