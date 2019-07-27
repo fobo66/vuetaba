@@ -21,12 +21,20 @@ defmodule VuetabaWeb.Context do
 
   defp build_context(conn) do
     with ["Bearer " <> token] <- get_req_header(conn, "Authorization"),
-         {:ok, claims} <- verify(token) do
-      {:ok, %{claims: claims, token: token}}
+         {:ok, permissions} <- verify(token) do
+      {:ok, %{permissions: permissions}}
     end
   end
 
   defp verify(token) do
-    {:ok, claims} = Vuetaba.AdminToken.verify_and_validate(token)
+    case Vuetaba.AdminToken.verify_and_validate(token) do
+      {:ok, claims} -> read_permissions(claims)
+      {:error, reason} -> {:error, reason}
+    end
+  end
+
+  defp read_permissions(claims) do
+    Map.get(claims, "scope")
+    |> String.slice(" ")
   end
 end
