@@ -51,7 +51,7 @@ defmodule Vuetaba.Mixfile do
       {:distillery, "~> 2.0"},
       {:joken, "~> 2.0"},
       {:joken_jwks, "~> 1.1.0"},
-      {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1.2", only: [:dev, :test], runtime: false}
     ]
   end
 
