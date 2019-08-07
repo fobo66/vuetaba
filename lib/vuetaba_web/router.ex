@@ -3,15 +3,18 @@ defmodule VuetabaWeb.Router do
 
   pipeline :api do
     plug(:accepts, ["json"])
+    plug(VuetabaWeb.Context)
   end
 
   scope "/" do
     pipe_through(:api)
 
-    forward("/graphiql", Absinthe.Plug.GraphiQL,
-      schema: VuetabaWeb.Schema,
-      socket: VuetabaWeb.UserSocket
-    )
+    if Mix.env() == :dev do
+      forward("/graphiql", Absinthe.Plug.GraphiQL,
+        schema: VuetabaWeb.Schema,
+        socket: VuetabaWeb.UserSocket
+      )
+    end
 
     forward("/", Absinthe.Plug, schema: VuetabaWeb.Schema)
   end

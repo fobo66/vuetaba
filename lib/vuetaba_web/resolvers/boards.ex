@@ -19,11 +19,19 @@ defmodule VuetabaWeb.Resolvers.Boards do
     |> Repo.update()
   end
 
-  def delete_board(_parent, args, _resolution) do
-    %Vuetaba.Board{id: args.id}
-    |> Ecto.Changeset.change()
-    |> Repo.delete()
+  def delete_board(_parent, args, %{context: %{permissions: permissions}}) do
+    if Vuetaba.AdminToken.has_permission(permissions, "delete:board") do
+      %Vuetaba.Board{id: args.id}
+      |> Ecto.Changeset.change()
+      |> Repo.delete()
 
-    {:ok, args.id}
+      {:ok, args.id}
+    else
+      {:error, "You are not authorized to perform this operation"}
+    end
+  end
+
+  def delete_board(_parent, args, _resolution) do
+    {:error, "You are not authorized to perform this operation"}
   end
 end

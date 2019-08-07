@@ -21,4 +21,13 @@ defmodule Vuetaba.AdminToken do
     )
     |> add_claim("exp", nil, &(&1 > Joken.current_time()))
   end
+
+  @doc """
+    Check if permission was given to admin, i.e. is present in "scope" field of the JWT
+  """
+  def has_permission(collection, permission) do
+    Enum.find(collection, fn element ->
+      match?({permission, _}, element)
+    end)
+  end
 end
