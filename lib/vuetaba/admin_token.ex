@@ -27,7 +27,7 @@ defmodule Vuetaba.AdminToken do
   """
   def has_permission(collection, permission) do
     Enum.find(collection, fn element ->
-      match?({permission, _}, element)
-    end)
+      permission === element
+    end) != nil
   end
 end

@@ -70,9 +70,39 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
       "
 
-    assert {:ok, %{data: data}} = evaluate_graphql(query)
+    assert {:ok, %{data: data}} =
+             Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["delete:board"]})
+
     expected = id["id"]
     %{"deleteBoard" => result} = data
     assert expected === result
+  end
+
+  test "Delete board unauthorized -> error" do
+    query = "mutation {
+        deleteBoard(
+          id: 1
+        )
+      }
+      "
+
+    assert {:ok, %{errors: errors}} =
+             evaluate_graphql(query)
+
+    assert !Enum.empty?(errors)
+  end
+
+  test "Delete board wrong permission -> error" do
+    query = "mutation {
+        deleteBoard(
+          id: 1
+        )
+      }
+      "
+
+    assert {:ok, %{errors: errors}} =
+             Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+
+    assert !Enum.empty?(errors)
   end
 end
