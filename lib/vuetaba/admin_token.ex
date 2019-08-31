@@ -30,4 +30,12 @@ defmodule Vuetaba.AdminToken do
       permission === element
     end) != nil
   end
+
+  def with_permission(permissions, permission, action) do
+    if has_permission(permissions || [], permission) do
+      action.()
+    else
+      {:error, "You are not authorized to perform this operation"}
+    end
+  end
 end
