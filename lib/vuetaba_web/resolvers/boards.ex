@@ -9,14 +9,22 @@ defmodule VuetabaWeb.Resolvers.Boards do
     {:ok, Vuetaba.Board |> Repo.all()}
   end
 
-  def create_board(_parent, args, _resolution) do
-    Repo.insert(%Vuetaba.Board{name: args.name, tag: args.tag})
+  def create_board(_parent, args, resolution) do
+    permissions = resolution.context[:permissions]
+
+    Vuetaba.AdminToken.with_permission(permissions || [], "create:board", fn ->
+      Repo.insert(%Vuetaba.Board{name: args.name, tag: args.tag})
+    end)
   end
 
-  def update_board(_parent, args, _resolution) do
-    %Vuetaba.Board{id: args.id, name: args.name, tag: args.tag}
-    |> Ecto.Changeset.change()
-    |> Repo.update()
+  def update_board(_parent, args, resolution) do
+    permissions = resolution.context[:permissions]
+
+    Vuetaba.AdminToken.with_permission(permissions || [], "update:board", fn ->
+      %Vuetaba.Board{id: args.id, name: args.name, tag: args.tag}
+      |> Ecto.Changeset.change()
+      |> Repo.update()
+    end)
   end
 
   def delete_board(_parent, args, resolution) do

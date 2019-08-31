@@ -25,7 +25,7 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
     }
     "
-    assert {:ok, %{data: data}} = evaluate_graphql(query)
+    assert {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
     expected = %{name: "test"}
     %{"createBoard" => result} = data
     Kronky.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
@@ -42,7 +42,7 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
     }
     "
-    assert {:ok, %{data: data}} = evaluate_graphql(query)
+    assert {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:board"]})
     expected = %{name: "test2"}
     %{"updateBoard" => result} = data
     Kronky.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
@@ -59,7 +59,7 @@ defmodule VuetabaWeb.Schema.MutationsTest do
     }
     "
 
-    {:ok, %{data: create_result}} = evaluate_graphql(create_query)
+    {:ok, %{data: create_result}} = Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
 
     %{"createBoard" => id} = create_result
 
