@@ -17,4 +17,12 @@ defmodule Vuetaba.Thread do
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end
+
+    def data() do
+    Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
 end

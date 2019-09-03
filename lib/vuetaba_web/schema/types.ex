@@ -1,6 +1,7 @@
 defmodule VuetabaWeb.Schema.Types do
   use Absinthe.Schema.Notation
-  use Absinthe.Ecto, repo: Vuetaba.Repo
+
+    import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @moduledoc """
     GraphQL types used in project
@@ -10,20 +11,20 @@ defmodule VuetabaWeb.Schema.Types do
     field(:id, non_null(:integer))
     field(:name, non_null(:string))
     field(:tag, non_null(:string))
-    field(:threads, list_of(:thread), resolve: assoc(:threads))
+    field(:threads, list_of(:thread), resolve: dataloader(Vuetaba.Thread))
   end
 
   object :thread do
     field(:name, :string)
     field(:message, :string)
-    field(:comments, list_of(:comment), resolve: assoc(:comments))
+    field(:comments, list_of(:comment), resolve: dataloader(Vuetaba.Comment))
   end
 
   object :comment do
     field(:name, :string)
     field(:comment, :string)
     field(:sage, :boolean)
-    field(:attachments, list_of(:attachment), resolve: assoc(:attachments))
+    field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Attachment))
   end
 
   object :attachment do

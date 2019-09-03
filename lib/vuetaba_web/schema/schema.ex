@@ -45,4 +45,19 @@ defmodule VuetabaWeb.Schema do
       resolve(&Resolvers.Boards.delete_board/3)
     end
   end
+
+  def context(ctx) do
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Vuetaba.Attachment, Vuetaba.Attachment.data())
+      |> Dataloader.add_source(Vuetaba.Board, Vuetaba.Board.data())
+      |> Dataloader.add_source(Vuetaba.Thread, Vuetaba.Thread.data())
+      |> Dataloader.add_source(Vuetaba.Comment, Vuetaba.Comment.data())
+
+    Map.put(ctx, :loader, loader)
+  end
+
+  def plugins do
+    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
+  end
 end
