@@ -1,8 +1,6 @@
 defmodule VuetabaWeb.Schema.MutationsTest do
   use Vuetaba.DataCase
-  require Kronky.TestHelper
-
-  Kronky.TestHelper.evaluate_schema(VuetabaWeb.Schema)
+  require AbsintheErrorPayload.TestHelper
 
   @moduledoc """
   Tests for mutations
@@ -25,10 +23,13 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
     }
     "
-    assert {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+
+    assert {:ok, %{data: data}} =
+             Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+
     expected = %{name: "test"}
     %{"createBoard" => result} = data
-    Kronky.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
   end
 
   test "Update board correct mutation" do
@@ -42,10 +43,13 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
     }
     "
-    assert {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:board"]})
+
+    assert {:ok, %{data: data}} =
+             Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:board"]})
+
     expected = %{name: "test2"}
     %{"updateBoard" => result} = data
-    Kronky.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
   end
 
   test "Delete board correct mutation" do
@@ -59,7 +63,8 @@ defmodule VuetabaWeb.Schema.MutationsTest do
     }
     "
 
-    {:ok, %{data: create_result}} = Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+    {:ok, %{data: create_result}} =
+      Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
 
     %{"createBoard" => id} = create_result
 
@@ -86,8 +91,7 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       }
       "
 
-    assert {:ok, %{errors: errors}} =
-             evaluate_graphql(query)
+    assert {:ok, %{errors: errors}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
 
     assert !Enum.empty?(errors)
   end
