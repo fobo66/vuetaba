@@ -11,20 +11,20 @@ defmodule VuetabaWeb.Schema.Types do
     field(:id, non_null(:integer))
     field(:name, non_null(:string))
     field(:tag, non_null(:string))
-    field(:threads, list_of(:thread), resolve: dataloader(Vuetaba.Thread))
+    field(:threads, list_of(:thread), resolve: dataloader(Vuetaba.Board))
   end
 
   object :thread do
     field(:name, :string)
     field(:message, :string)
-    field(:comments, list_of(:comment), resolve: dataloader(Vuetaba.Comment))
+    field(:comments, list_of(:comment), resolve: dataloader(Vuetaba.Thread))
   end
 
   object :comment do
     field(:name, :string)
     field(:comment, :string)
     field(:sage, :boolean)
-    field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Attachment))
+    field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Comment))
   end
 
   object :attachment do
