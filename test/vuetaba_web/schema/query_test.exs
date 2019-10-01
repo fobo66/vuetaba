@@ -1,8 +1,6 @@
 defmodule VuetabaWeb.Schema.QueryTest do
   use Vuetaba.DataCase
-  require Kronky.TestHelper
-
-  Kronky.TestHelper.evaluate_schema(VuetabaWeb.Schema)
+  require AbsintheErrorPayload.TestHelper
 
   @moduledoc """
   Tests for queries
@@ -16,11 +14,11 @@ defmodule VuetabaWeb.Schema.QueryTest do
             }
             "
 
-    {:ok, %{data: data}} = evaluate_graphql(query)
+    {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
     attachment_fields = %{url: :string}
     expected = []
     %{"attachments" => result} = data
-    Kronky.TestHelper.assert_equivalent_graphql(expected, result, attachment_fields)
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, attachment_fields)
   end
 
   test "Load all boards" do
@@ -31,10 +29,10 @@ defmodule VuetabaWeb.Schema.QueryTest do
             }
             "
 
-    {:ok, %{data: data}} = evaluate_graphql(query)
+    {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
     board_fields = %{name: :string}
     expected = []
     %{"boards" => result} = data
-    Kronky.TestHelper.assert_equivalent_graphql(expected, result, board_fields)
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields)
   end
 end
