@@ -18,7 +18,7 @@ defmodule Vuetaba.Thread do
     |> validate_required([:name])
   end
 
-    def data() do
+  def data() do
     Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
   end
 
