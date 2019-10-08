@@ -47,7 +47,7 @@ defmodule VuetabaWeb.Schema.QueryTest do
     }
     "
 
-    {:ok, %{data: create_result}} =
+    {:ok, _} =
       Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
 
     query = "{ board(

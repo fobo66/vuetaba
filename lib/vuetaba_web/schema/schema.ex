@@ -50,6 +50,15 @@ defmodule VuetabaWeb.Schema do
 
       resolve(&Resolvers.Boards.delete_board/3)
     end
+
+    @desc "Create new thread"
+    field :create_thread, type: :thread do
+      arg(:name, non_null(:string))
+      arg(:message, non_null(:string))
+      arg(:board_id, non_null(:integer))
+
+      resolve(&Resolvers.Threads.create_thread/3)
+    end
   end
 
   def context(ctx) do

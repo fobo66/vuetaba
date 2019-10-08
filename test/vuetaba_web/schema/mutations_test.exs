@@ -109,4 +109,40 @@ defmodule VuetabaWeb.Schema.MutationsTest do
 
     assert !Enum.empty?(errors)
   end
+
+  test "Insert thread correct mutation" do
+
+    create_query = "mutation {
+      createBoard(
+        name: \"test\",
+        tag: \"t\"
+      ) {
+        id
+      }
+    }
+    "
+
+    {:ok, %{data: create_result}} =
+      Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+
+    %{"createBoard" => id} = create_result
+
+    query = "mutation {
+      createThread(
+        name: \"test\",
+        message: \"test\"
+        boardId: #{Integer.to_string(id["id"])}
+      ) {
+        name
+      }
+    }
+    "
+
+    assert {:ok, %{data: data}} =
+             Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+
+    expected = %{name: "test"}
+    %{"createThread" => result} = data
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
+  end
 end
