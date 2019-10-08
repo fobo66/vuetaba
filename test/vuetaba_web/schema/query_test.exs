@@ -35,4 +35,34 @@ defmodule VuetabaWeb.Schema.QueryTest do
     %{"boards" => result} = data
     AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields)
   end
+
+  test "Load board by tag" do
+    create_query = "mutation {
+      createBoard(
+        name: \"test\",
+        tag: \"t\"
+      ) {
+        tag
+      }
+    }
+    "
+
+    {:ok, %{data: create_result}} =
+      Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
+
+    query = "{ board(
+                  tag: \"t\"
+                )
+                {
+                    name
+                }
+            }
+            "
+
+    {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+    board_fields = %{name: :string}
+    expected = %{name: "test"}
+    %{"board" => result} = data
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields)
+  end
 end

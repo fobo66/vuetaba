@@ -22,7 +22,7 @@ defmodule Vuetaba.Board do
     Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
   end
 
-  def query(Vuetaba.Thread, params) do
+  def query(Vuetaba.Thread, _params) do
     Ecto.Query.from(t in Vuetaba.Thread, order_by: [desc: field(t, :updated_at)])
   end
 

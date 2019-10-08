@@ -1,5 +1,6 @@
 defmodule VuetabaWeb.Resolvers.Boards do
   alias Vuetaba.Repo
+  require Ecto.Query
 
   @moduledoc """
   GraphQL resolvers for Boards model
@@ -7,6 +8,10 @@ defmodule VuetabaWeb.Resolvers.Boards do
 
   def load_all_boards(_parent, _args, _resolution) do
     {:ok, Vuetaba.Board |> Repo.all()}
+  end
+
+  def load_board(_parent, args, _resolution) do
+    {:ok, Repo.one(Ecto.Query.from b in Vuetaba.Board, where: b.tag == ^args.tag)}
   end
 
   def create_board(_parent, args, resolution) do

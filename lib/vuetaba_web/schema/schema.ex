@@ -18,6 +18,12 @@ defmodule VuetabaWeb.Schema do
     field :boards, list_of(:board) do
       resolve(&Resolvers.Boards.load_all_boards/3)
     end
+
+    @desc "Load board by its tag"
+    field :board, type: :board do
+      arg(:tag, non_null(:string))
+      resolve(&Resolvers.Boards.load_board/3)
+    end
   end
 
   mutation do
