@@ -169,5 +169,41 @@ defmodule VuetabaWeb.Schema.MutationsTest do
       %{"updateThread" => result} = data
       AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields())
     end
+
+    test "Update thread missing parameter error" do
+      query = "mutation {
+      updateThread(
+        id: 1,
+        name: \"test2\",
+        message: \"t\"
+      ) {
+        name
+      }
+    }
+    "
+
+      assert {:ok, %{errors: errors}} =
+               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:thread"]})
+
+      assert !Enum.empty?(errors)
+    end
+
+    test "Update thread wrong permission error" do
+      query = "mutation {
+      updateThread(
+        id: 1,
+        name: \"test2\",
+        message: \"t\"
+      ) {
+        name
+      }
+    }
+    "
+
+      assert {:ok, %{errors: errors}} =
+               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:board"]})
+
+      assert !Enum.empty?(errors)
+    end
   end
 end
