@@ -59,6 +59,16 @@ defmodule VuetabaWeb.Schema do
 
       resolve(&Resolvers.Threads.create_thread/3)
     end
+
+    @desc "Update thread"
+    field :update_thread, type: :thread do
+      arg(:id, non_null(:integer))
+      arg(:name, non_null(:string))
+      arg(:message, non_null(:string))
+      arg(:board_id, non_null(:integer))
+
+      resolve(&Resolvers.Threads.update_thread/3)
+    end
   end
 
   def context(ctx) do
