@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/fobo66/vuetaba.svg?style=svg)](https://circleci.com/gh/fobo66/vuetaba)
 
-Vuetaba is an imageboard server implementation written in Elixir using [Phoenix framework](http://www.phoenixframework.org/). [GraphQL](http://www.graphql.org/) is used for API.
+Vuetaba is an [imageboard](https://en.wikipedia.org/wiki/Imageboard) (chan) server implementation inspired by [Wakaba](https://wakaba.c3.cx/s/web/wakaba_kareha) written in Elixir using [Phoenix framework](http://www.phoenixframework.org/). [GraphQL](http://www.graphql.org/) is used for API.
 
 ## Installation
 
