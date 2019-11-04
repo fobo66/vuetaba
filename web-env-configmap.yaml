@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/vuetaba_dev
+  PHOENIX_ENDPOINT_SECRET: ioDKXoJ/NyDy50ycy+LGpk5P9iPaawSH3ISB8/RLUy/ffysl6Is1in42SeoK1yKa
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: web-env
+  name: web-env
