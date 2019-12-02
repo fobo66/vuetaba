@@ -115,34 +115,7 @@ defmodule VuetabaWeb.Schema.MutationsTest do
 
   describe "Threads" do
     test "Insert thread correct mutation" do
-      create_query = "mutation {
-      createBoard(
-        name: \"test\",
-        tag: \"t\"
-      ) {
-        id
-      }
-    }
-    "
-
-      {:ok, %{data: create_result}} =
-        Absinthe.run(create_query, VuetabaWeb.Schema, context: %{permissions: ["create:board"]})
-
-      %{"createBoard" => id} = create_result
-
-      query = "mutation {
-      createThread(
-        name: \"test\",
-        message: \"test\"
-        boardId: #{Integer.to_string(id["id"])}
-      ) {
-        name
-      }
-    }
-    "
-
-      assert {:ok, %{data: data}} =
-               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+      data = VuetabaWeb.TestHelper.create_thread()
 
       expected = %{name: "test"}
       %{"createThread" => result} = data
@@ -202,6 +175,54 @@ defmodule VuetabaWeb.Schema.MutationsTest do
 
       assert {:ok, %{errors: errors}} =
                Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["update:board"]})
+
+      assert !Enum.empty?(errors)
+    end
+
+    test "Delete thread correct mutation" do
+      create_result = VuetabaWeb.TestHelper.create_thread()
+
+      %{"createThread" => id} = create_result
+
+      query = "mutation {
+        deleteThread(
+          id: #{Integer.to_string(id["id"])}
+        )
+      }
+      "
+
+      assert {:ok, %{data: data}} =
+               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["delete:thread"]})
+
+      expected = id["id"]
+      %{"deleteThread" => result} = data
+      assert expected === result
+    end
+
+    test "Delete thread unauthorized -> error" do
+      query = "mutation {
+        deleteThread(
+          id: 1
+        )
+      }
+      "
+
+      assert {:ok, %{errors: errors}} =
+               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+
+      assert !Enum.empty?(errors)
+    end
+
+    test "Delete thread wrong permission -> error" do
+      query = "mutation {
+        deleteThread(
+          id: 1
+        )
+      }
+      "
+
+      assert {:ok, %{errors: errors}} =
+               Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: ["create:thread"]})
 
       assert !Enum.empty?(errors)
     end

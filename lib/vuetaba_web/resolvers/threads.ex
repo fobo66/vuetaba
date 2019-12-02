@@ -18,4 +18,16 @@ defmodule VuetabaWeb.Resolvers.Threads do
       |> Repo.update()
     end)
   end
+
+  def delete_thread(_parent, args, resolution) do
+    permissions = resolution.context[:permissions]
+
+    Vuetaba.AdminToken.with_permission(permissions || [], "delete:thread", fn ->
+      %Vuetaba.Thread{id: args.id}
+      |> Ecto.Changeset.change()
+      |> Repo.delete()
+
+      {:ok, args.id}
+    end)
+  end
 end

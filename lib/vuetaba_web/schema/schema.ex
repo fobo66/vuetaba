@@ -69,6 +69,13 @@ defmodule VuetabaWeb.Schema do
 
       resolve(&Resolvers.Threads.update_thread/3)
     end
+
+    @desc "Delete thread"
+    field :delete_thread, type: :integer do
+      arg(:id, non_null(:integer))
+
+      resolve(&Resolvers.Threads.delete_thread/3)
+    end
   end
 
   def context(ctx) do

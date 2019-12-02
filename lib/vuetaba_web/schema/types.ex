@@ -15,6 +15,7 @@ defmodule VuetabaWeb.Schema.Types do
   end
 
   object :thread do
+    field(:id, non_null(:integer))
     field(:name, :string)
     field(:message, :string)
     field(:comments, list_of(:comment), resolve: dataloader(Vuetaba.Thread))
