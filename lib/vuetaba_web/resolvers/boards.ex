@@ -14,6 +14,10 @@ defmodule VuetabaWeb.Resolvers.Boards do
     {:ok, Repo.one(Ecto.Query.from b in Vuetaba.Board, where: b.tag == ^args.tag)}
   end
 
+  def load_board(id) do
+    {:ok, Vuetaba.Board |> Repo.get(id)}
+  end
+
   def create_board(_parent, args, resolution) do
     permissions = resolution.context[:permissions]
 

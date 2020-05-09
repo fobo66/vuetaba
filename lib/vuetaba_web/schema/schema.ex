@@ -1,5 +1,7 @@
 defmodule VuetabaWeb.Schema do
   use Absinthe.Schema
+  use Absinthe.Relay.Schema, :modern
+
   import_types(VuetabaWeb.Schema.Types)
 
   @moduledoc """
@@ -9,6 +11,20 @@ defmodule VuetabaWeb.Schema do
   alias VuetabaWeb.Resolvers
 
   query do
+    @desc "Support for Relay node loading"
+    node field do
+      resolve(fn
+        %{type: :board, id: id}, _ ->
+          Resolvers.Boards.load_board(id)
+
+        %{type: :thread, id: id}, _ ->
+          Resolvers.Threads.load_thread(id)
+
+        %{type: :attachment, id: id}, _ ->
+          Resolvers.Attachments.load_attachment(id)
+      end)
+    end
+
     @desc "Load all attachments"
     field :attachments, list_of(:attachment) do
       resolve(&Resolvers.Attachments.load_all_attachments/3)
