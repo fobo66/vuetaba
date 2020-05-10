@@ -7,17 +7,20 @@ defmodule VuetabaWeb.Schema.QueryTest do
   """
 
   test "Load all attachments" do
-    query = "{ attachments
-                {
+    query = "{ attachments(first: 10) {
+                edges {
+                  node {
                     url
+                  }
                 }
-            }
+              }
+             }
             "
 
-    {:ok, %{data: data}} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
-    attachment_fields = %{url: :string}
-    expected = []
-    %{"attachments" => result} = data
+    {:ok, response} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+    attachment_fields = %{edges: :list}
+    expected = %{"edges" => []}
+    %{data: %{"attachments" => result}} = response
     AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, attachment_fields)
   end
 
@@ -64,5 +67,8 @@ defmodule VuetabaWeb.Schema.QueryTest do
     expected = %{name: "test"}
     %{"board" => result} = data
     AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, board_fields)
+  end
+
+  test "Attachment connection" do
   end
 end

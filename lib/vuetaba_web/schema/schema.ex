@@ -26,8 +26,8 @@ defmodule VuetabaWeb.Schema do
     end
 
     @desc "Load all attachments"
-    field :attachments, list_of(:attachment) do
-      resolve(&Resolvers.Attachments.load_all_attachments/3)
+    connection field :attachments, node_type: :attachment do
+      resolve(&Resolvers.Attachments.load_all_attachments/2)
     end
 
     @desc "Load all boards"

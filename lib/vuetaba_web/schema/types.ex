@@ -31,7 +31,9 @@ defmodule VuetabaWeb.Schema.Types do
     field(:id, non_null(:integer))
     field(:name, non_null(:string))
     field(:tag, non_null(:string))
-    field(:threads, list_of(:thread), resolve: dataloader(Vuetaba.Board))
+    connection field(:threads, node_type: :thread) do
+      resolve(&VuetabaWeb.Resolvers.Threads.load_threads/2)
+    end
   end
 
   object :thread do
@@ -48,7 +50,13 @@ defmodule VuetabaWeb.Schema.Types do
     field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Comment))
   end
 
-  object(:attachment) do
+  node object(:attachment) do
     field(:url, :string)
   end
+
+  connection node_type: :attachment
+
+  connection node_type: :board
+
+  connection node_type: :thread
 end
