@@ -6,7 +6,7 @@ Vuetaba is an [imageboard](https://en.wikipedia.org/wiki/Imageboard) (chan) serv
 
 ## Installation
 
-To start your Phoenix server:
+To start Vuetaba server:
 
 * Install dependencies with `mix deps.get`
 * Create and migrate your database with `mix ecto.setup`
@@ -17,4 +17,4 @@ Now you can visit [`localhost:4000/graphiql`](http://localhost:4000/graphiql) fr
 Reference client application is in early development stage and is not yet available on Github, unfortunately. 
 It's written in Typescript based on Vue.js framework, hence the name of the project.
 
-Ready to run in production? You can use Docker or Heroku for deployment.
+You can use Docker or Heroku for deployment. Please note that this is WIP and not ready for production use
