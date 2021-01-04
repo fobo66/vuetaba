@@ -22,7 +22,7 @@ defmodule Vuetaba.Comment do
     |> validate_required([:name, :comment, :sage])
   end
 
-    def data() do
+  def data() do
     Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
   end
 

@@ -40,14 +40,16 @@ defmodule VuetabaWeb.Schema.Types do
     field(:id, non_null(:integer))
     field(:name, :string)
     field(:message, :string)
-    field(:comments, list_of(:comment), resolve: dataloader(Vuetaba.Thread))
+    connection field(:comments, node_type: :comment) do
+      resolve(&VuetabaWeb.Resolvers.Comments.load_comments/2)
+    end
   end
 
   object(:comment) do
     field(:name, :string)
     field(:comment, :string)
     field(:sage, :boolean)
-    field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Comment))
+    field(:attachments, list_of(:attachment), resolve: dataloader(Vuetaba.Attachment))
   end
 
   node object(:attachment) do
@@ -59,4 +61,6 @@ defmodule VuetabaWeb.Schema.Types do
   connection node_type: :board
 
   connection node_type: :thread
+
+  connection node_type: :comment
 end
