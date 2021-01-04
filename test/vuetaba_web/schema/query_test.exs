@@ -91,4 +91,33 @@ defmodule VuetabaWeb.Schema.QueryTest do
     %{data: %{"boards" => result}} = response
     AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, threads_fields)
   end
+
+  test "Comments connection for thread" do
+    VuetabaWeb.TestHelper.create_thread()
+
+    query = "{ boards
+                {
+                  threads(first: 10) {
+                    edges {
+                      node {
+                        comments(first: 10) {
+                          edges {
+                            node {
+                              name
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+            "
+
+    {:ok, response} = Absinthe.run(query, VuetabaWeb.Schema, context: %{permissions: []})
+    threads_fields = %{edges: :list}
+    expected = [%{"threads" => %{"edges" => [%{"node" => %{"comments" => %{"edges" => []}}}]}}]
+    %{data: %{"boards" => result}} = response
+    AbsintheErrorPayload.TestHelper.assert_equivalent_graphql(expected, result, threads_fields)
+  end
 end
