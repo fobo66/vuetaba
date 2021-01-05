@@ -5,12 +5,17 @@ defmodule Vuetaba.Mixfile do
     [
       app: :vuetaba,
       version: "0.0.2",
-      elixir: "~> 1.7",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        vuetaba: [
+
+        ]
+      ]
     ]
   end
 
@@ -49,7 +54,6 @@ defmodule Vuetaba.Mixfile do
       {:dataloader, "~> 1.0.0"},
       {:absinthe_phoenix, "~> 1.4.0"},
       {:absinthe_error_payload, "~> 1.0"},
-      {:distillery, "~> 2.0"},
       {:joken, "~> 2.0"},
       {:joken_jwks, "~> 1.4.0"},
       {:credo, "~> 1.5.0", only: [:dev, :test], runtime: false}

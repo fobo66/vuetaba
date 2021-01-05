@@ -6,7 +6,7 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-Config.config(:vuetaba, VuetabaWeb.Endpoint,
+config(:vuetaba, VuetabaWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -43,14 +43,14 @@ Config.config(:vuetaba, VuetabaWeb.Endpoint,
 )
 
 # Do not include metadata nor timestamps in development logs
-Config.config(:logger, :console, format: "[$level] $message\n")
+config(:logger, :console, format: "[$level] $message\n")
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
-Config.config(:phoenix, :stacktrace_depth, 20)
+config(:phoenix, :stacktrace_depth, 20)
 
 # Configure your database
-Config.config(:vuetaba, Vuetaba.Repo,
+config(:vuetaba, Vuetaba.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
