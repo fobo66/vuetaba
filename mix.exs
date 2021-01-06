@@ -4,7 +4,7 @@ defmodule Vuetaba.Mixfile do
   def project do
     [
       app: :vuetaba,
-      version: "0.0.2",
+      version: "0.0.3",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
