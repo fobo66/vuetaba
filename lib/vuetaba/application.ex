@@ -10,6 +10,7 @@ defmodule Vuetaba.Application do
       Vuetaba.Repo,
       # Start the endpoint when the application starts
       VuetabaWeb.Endpoint,
+      {Phoenix.PubSub, [name: Vuetaba.PubSub, adapter: Phoenix.PubSub.PG2]},
       {Absinthe.Subscription, [VuetabaWeb.Endpoint]}
       # Start your own worker by calling: Vuetaba.Worker.start_link(arg1, arg2, arg3)
       # worker(Vuetaba.Worker, [arg1, arg2, arg3]),

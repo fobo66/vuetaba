@@ -17,8 +17,8 @@ defmodule VuetabaWeb.ConnCase do
 
   using do
     quote do
-      # Import conveniences for testing with connections
-      use Phoenix.ConnTest
+      import Plug.Conn
+      import Phoenix.ConnTest
       import VuetabaWeb.Router.Helpers
 
       # The default endpoint for testing
