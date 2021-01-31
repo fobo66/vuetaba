@@ -25,7 +25,7 @@ defmodule Vuetaba.Mixfile do
   def application do
     [
       mod: {Vuetaba.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :phoenix_pubsub, :runtime_tools]
     ]
   end
 
