@@ -1,5 +1,4 @@
 defmodule VuetabaWeb.Endpoint do
-  use GenServer
   use Phoenix.Endpoint, otp_app: :vuetaba
 
   use Absinthe.Phoenix.Endpoint
