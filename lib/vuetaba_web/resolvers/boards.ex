@@ -11,7 +11,7 @@ defmodule VuetabaWeb.Resolvers.Boards do
   end
 
   def load_board(_parent, args, _resolution) do
-    {:ok, Repo.one(Ecto.Query.from b in Vuetaba.Board, where: b.tag == ^args.tag)}
+    {:ok, Repo.one(Ecto.Query.from(b in Vuetaba.Board, where: b.tag == ^args.tag))}
   end
 
   def load_board(id) do

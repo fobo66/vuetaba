@@ -1,5 +1,6 @@
 defmodule Vuetaba.Repo do
   use GenServer
+
   use Ecto.Repo,
     otp_app: :vuetaba,
     adapter: Ecto.Adapters.Postgres

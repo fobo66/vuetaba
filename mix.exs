@@ -12,9 +12,7 @@ defmodule Vuetaba.Mixfile do
       aliases: aliases(),
       deps: deps(),
       releases: [
-        vuetaba: [
-
-        ]
+        vuetaba: []
       ]
     ]
   end

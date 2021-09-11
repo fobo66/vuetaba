@@ -26,7 +26,7 @@ defmodule VuetabaWeb.Schema do
     end
 
     @desc "Load all attachments"
-    connection field :attachments, node_type: :attachment do
+    connection field(:attachments, node_type: :attachment) do
       resolve(&Resolvers.Attachments.load_all_attachments/2)
     end
 
