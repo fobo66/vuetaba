@@ -14,7 +14,6 @@ To start Vuetaba server:
 
 Now you can visit [`localhost:4000/graphiql`](http://localhost:4000/graphiql) from your browser to test GraphQL endpoints.
 
-Reference client application is in early development stage and is not yet available on Github, unfortunately. 
-It's written in Typescript based on Vue.js framework, hence the name of the project.
+Reference [client application](https://github.com/fobo66/vuetaba-client) is in early development stage. It's written in Typescript based on Vue.js framework, hence the name of the project.
 
 You can use Docker or Heroku for deployment. Please note that this is WIP and not ready for production use
