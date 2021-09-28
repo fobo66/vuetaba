@@ -31,3 +31,5 @@ vuetaba-*.tar
 /.idea
 
 .env
+
+*.iml
