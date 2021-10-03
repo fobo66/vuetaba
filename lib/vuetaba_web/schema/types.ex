@@ -2,8 +2,6 @@ defmodule VuetabaWeb.Schema.Types do
   use Absinthe.Schema.Notation
   use Absinthe.Relay.Schema.Notation, :modern
 
-  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
-
   @moduledoc """
     GraphQL types used in project
   """

@@ -16,12 +16,4 @@ defmodule Vuetaba.Attachment do
     |> cast(attrs, [:url])
     |> validate_required([:url])
   end
-
-  def data() do
-    Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
-  end
-
-  def query(queryable, _params) do
-    queryable
-  end
 end

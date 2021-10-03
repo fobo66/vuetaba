@@ -49,7 +49,6 @@ defmodule Vuetaba.Mixfile do
       {:absinthe, "~> 1.5"},
       {:absinthe_plug, "~> 1.5"},
       {:absinthe_relay, "~> 1.5"},
-      {:dataloader, "~> 1.0.0"},
       {:absinthe_phoenix, "~> 2.0"},
       {:absinthe_error_payload, "~> 1.0"},
       {:joken, "~> 2.0"},

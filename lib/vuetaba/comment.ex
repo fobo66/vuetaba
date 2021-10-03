@@ -21,12 +21,4 @@ defmodule Vuetaba.Comment do
     |> cast(attrs, [:name, :comment, :sage])
     |> validate_required([:name, :comment, :sage])
   end
-
-  def data() do
-    Dataloader.Ecto.new(Vuetaba.Repo, query: &query/2)
-  end
-
-  def query(queryable, _params) do
-    queryable
-  end
 end
