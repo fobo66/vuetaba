@@ -31,8 +31,8 @@ defmodule VuetabaWeb.Schema do
     end
 
     @desc "Load all boards"
-    field :boards, list_of(:board) do
-      resolve(&Resolvers.Boards.load_all_boards/3)
+    connection field(:boards, node_type: :board) do
+      resolve(&Resolvers.Boards.load_all_boards/2)
     end
 
     @desc "Load board by its tag"

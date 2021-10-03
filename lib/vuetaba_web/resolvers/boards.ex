@@ -6,8 +6,10 @@ defmodule VuetabaWeb.Resolvers.Boards do
   GraphQL resolvers for Boards model
   """
 
-  def load_all_boards(_parent, _args, _resolution) do
-    {:ok, Vuetaba.Board |> Repo.all()}
+  def load_all_boards(pagination_args, _context) do
+    Vuetaba.Board
+    |> Ecto.Queryable.to_query()
+    |> Absinthe.Relay.Connection.from_query(&Repo.all/1, pagination_args)
   end
 
   def load_board(_parent, args, _resolution) do
