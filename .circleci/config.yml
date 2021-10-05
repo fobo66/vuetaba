@@ -12,6 +12,7 @@ jobs:  # basic units of work in a run
           POSTGRES_DB: vuetaba_test
           POSTGRES_PASSWORD: postgres
 
+    resource_class: small
     working_directory: ~/app  # directory where steps will run
 
     steps:  # commands that comprise the `build` job
