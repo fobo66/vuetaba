@@ -5,7 +5,7 @@ defmodule VuetabaWeb.Endpoint do
 
   socket("/socket", VuetabaWeb.UserSocket, websocket: true)
 
-  plug(Plug.Static, at: "/", from: :vuetaba, gzip: true, only: ~w(favicon.ico robots.txt))
+  plug(Plug.Static, at: "/", from: :vuetaba, brotli: true, only: ~w(favicon.ico robots.txt))
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
