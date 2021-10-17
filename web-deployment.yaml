@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -36,6 +36,17 @@ spec:
         name: web
         ports:
         - containerPort: 5000
-        resources: {}
+        resources: 
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
       restartPolicy: Always
+      imagePullPolicy: Always 
 status: {}

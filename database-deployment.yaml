@@ -26,11 +26,22 @@ spec:
         name: database
         ports:
         - containerPort: 5432
-        resources: {}
+        resources: 
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: postgres
       restartPolicy: Always
+      imagePullPolicy: Always 
       volumes:
       - name: postgres
         persistentVolumeClaim:
