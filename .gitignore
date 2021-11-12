@@ -33,3 +33,5 @@ vuetaba-*.tar
 .env
 
 *.iml
+
+/.elixir_ls
