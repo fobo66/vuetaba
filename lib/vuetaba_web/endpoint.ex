@@ -15,7 +15,9 @@ defmodule VuetabaWeb.Endpoint do
     plug(Phoenix.CodeReloader)
   end
 
-  plug(Plug.Logger)
+  if Mix.env() == :dev do
+    plug(Plug.Logger)
+  end
 
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
