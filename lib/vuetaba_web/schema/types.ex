@@ -49,7 +49,7 @@ defmodule VuetabaWeb.Schema.Types do
     field(:name, :string)
     field(:comment, :string)
     field(:sage, :boolean)
-    
+
     connection field(:attachments, node_type: :attachment) do
       resolve(&VuetabaWeb.Resolvers.Attachments.load_attachments/2)
     end

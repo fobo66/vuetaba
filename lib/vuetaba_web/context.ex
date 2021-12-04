@@ -34,7 +34,8 @@ defmodule VuetabaWeb.Context do
   end
 
   defp read_permissions(claims) do
-    Map.get(claims, "scope") || ""
-    |> String.slice(" ")
+    Map.get(claims, "scope") ||
+      ""
+      |> String.slice(" ")
   end
 end
