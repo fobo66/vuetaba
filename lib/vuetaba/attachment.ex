@@ -3,7 +3,7 @@ defmodule Vuetaba.Attachment do
   import Ecto.Changeset
 
   schema "attachments" do
-    field(:url, :string, size: 512)
+    field(:url, :string)
 
     belongs_to(:comment, Vuetaba.Comment)
 

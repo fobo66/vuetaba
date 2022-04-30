@@ -6,7 +6,7 @@ defmodule Vuetaba.Comment do
   import Ecto.Changeset
 
   schema "comments" do
-    field(:comment, :string, size: 1000)
+    field(:comment, :string)
     field(:name, :string)
     field(:sage, :boolean, default: false)
     belongs_to(:thread, Vuetaba.Thread)

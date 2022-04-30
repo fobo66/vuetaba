@@ -8,8 +8,8 @@ defmodule Vuetaba.Thread do
   """
 
   schema "threads" do
-    field(:name, :string, size: 512)
-    field(:message, :string, size: 1000)
+    field(:name, :string)
+    field(:message, :string)
     belongs_to(:board, Vuetaba.Board)
     has_many(:comments, Vuetaba.Comment)
 
