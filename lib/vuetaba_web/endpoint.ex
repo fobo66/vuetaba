@@ -3,6 +3,8 @@ defmodule VuetabaWeb.Endpoint do
 
   use Absinthe.Phoenix.Endpoint
 
+  plug(VuetabaWeb.Health.Plug)
+
   socket("/socket", VuetabaWeb.UserSocket, websocket: true)
 
   plug(Plug.Static, at: "/", from: :vuetaba, brotli: true, only: ~w(favicon.ico robots.txt))
