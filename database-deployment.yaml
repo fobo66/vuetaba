@@ -41,7 +41,17 @@ spec:
         - mountPath: /var/lib/postgresql/data
           name: postgres
         restartPolicy: Always
-        imagePullPolicy: Always 
+        imagePullPolicy: Always
+        readinessProbe:
+          exec:
+            command: ["psql", "-w", "-U", "postgres", "-d", "vuetaba", "-c", "SELECT 1"]
+          initialDelaySeconds: 15
+          timeoutSeconds: 2
+        livenessProbe:
+          exec:
+            command: ["psql", "-w", "-U", "postgres", "-d", "vuetaba", "-c", "SELECT 1"]
+          initialDelaySeconds: 45
+          timeoutSeconds: 2
       volumes:
       - name: postgres
         persistentVolumeClaim:
