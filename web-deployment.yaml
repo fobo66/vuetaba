@@ -52,12 +52,12 @@ spec:
               periodSeconds: 3
               failureThreshold: 5
 
-            livenessProbe:
-              httpGet:
-                path: /health/liveness
-                port: http
-              periodSeconds: 10
-              failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: http
+            periodSeconds: 10
+            failureThreshold: 6
 
             readinessProbe:
               httpGet:
