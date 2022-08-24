@@ -66,5 +66,5 @@ spec:
               periodSeconds: 10
               failureThreshold: 1
           restartPolicy: Always
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 status: {}
