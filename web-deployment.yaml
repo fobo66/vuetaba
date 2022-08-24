@@ -65,6 +65,6 @@ spec:
                 port: http
               periodSeconds: 10
               failureThreshold: 1
-      restartPolicy: Always
-      imagePullPolicy: Always
+          restartPolicy: Always
+          imagePullPolicy: IfNotPresent
 status: {}

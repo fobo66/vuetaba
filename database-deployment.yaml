@@ -40,8 +40,8 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: postgres
-      restartPolicy: Always
-      imagePullPolicy: Always 
+        restartPolicy: Always
+        imagePullPolicy: IfNotPresent 
       volumes:
       - name: postgres
         persistentVolumeClaim:
