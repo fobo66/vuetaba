@@ -31,6 +31,7 @@ spec:
             cpu: "500m"
             memory: "128Mi"
         securityContext:
+          runAsUser: 22222
           runAsNonRoot: true
           readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
