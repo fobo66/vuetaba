@@ -1,6 +1,5 @@
 defmodule VuetabaWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :vuetaba
-
   use Absinthe.Phoenix.Endpoint
 
   plug(VuetabaWeb.Health.Plug)
@@ -43,7 +42,7 @@ defmodule VuetabaWeb.Endpoint do
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.
-  
+
   It receives the endpoint configuration and checks if
   configuration should be loaded from the system environment.
   """
