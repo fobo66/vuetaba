@@ -36,8 +36,8 @@ defmodule Vuetaba.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5"},
-      {:phoenix_pubsub, "~> 2.0"},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_pubsub, "~> 2.1"},
       {:ecto_sql, "~> 3.0"},
       {:phoenix_ecto, "~> 4.0"},
       {:postgrex, ">= 0.0.0"},
@@ -46,7 +46,7 @@ defmodule Vuetaba.Mixfile do
       {:jason, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
       {:plug, "~> 1.7"},
-      {:absinthe, "~> 1.5"},
+      {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
       {:absinthe_relay, "~> 1.5"},
       {:absinthe_phoenix, "~> 2.0"},
