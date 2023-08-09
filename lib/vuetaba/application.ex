@@ -8,10 +8,10 @@ defmodule Vuetaba.Application do
     children = [
       # Start the Ecto repository
       Vuetaba.Repo,
+      {Phoenix.PubSub, [name: :vuetaba_pubsub]},
       # Start the endpoint when the application starts
       VuetabaWeb.Endpoint,
-      {Phoenix.PubSub, [name: :vuetaba_pubsub, adapter: Phoenix.PubSub.PG2]},
-      {Absinthe.Subscription, [VuetabaWeb.Endpoint]}
+      {Absinthe.Subscription, [pubsub: VuetabaWeb.Endpoint]}
       # Start your own worker by calling: Vuetaba.Worker.start_link(arg1, arg2, arg3)
       # worker(Vuetaba.Worker, [arg1, arg2, arg3]),
     ]
