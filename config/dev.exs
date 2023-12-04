@@ -31,7 +31,7 @@ config(:vuetaba, VuetabaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-Config.config(:vuetaba, VuetabaWeb.Endpoint,
+config(:vuetaba, VuetabaWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
