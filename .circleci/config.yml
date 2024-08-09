@@ -6,7 +6,7 @@ jobs:  # basic units of work in a run
       - image: cimg/elixir:1.16  # ...with this image as the primary container; this is where all `steps` will run
         environment:  # environment variables for primary container
           MIX_ENV: test
-      - image: cimg/postgres:16.3 # database image
+      - image: cimg/postgres:16.4 # database image
         environment:  # environment variables for database
           POSTGRES_USER: postgres
           POSTGRES_DB: vuetaba_test
